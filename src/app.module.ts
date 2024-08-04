@@ -11,6 +11,9 @@ import { WinstonModule } from 'nest-winston';
 import * as winston from 'winston';
 import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_INTERCEPTOR } from '@nestjs/core';
+import { TelegrafModule } from 'nestjs-telegraf';
+import { TelegrafConfigService } from './config/telegramm.factory';
+import { TelegrammModule } from './telegramm/telegramm.module';
 
 @Module({
   imports: [
@@ -20,6 +23,9 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
     }),
     TypeOrmModule.forRootAsync({
       useClass: DatabaseConfigFactory,
+    }),
+    TelegrafModule.forRootAsync({
+      useClass: TelegrafConfigService,
     }),
     WinstonModule.forRoot({
       levels: {
@@ -35,6 +41,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
       ],
     }),
     CacheModule.register({ ttl: 5, max: 10, isGlobal: true }),
+    TelegrammModule,
     UsersModule,
     AuthModule,
   ],
