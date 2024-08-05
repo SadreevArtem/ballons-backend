@@ -19,8 +19,10 @@ export class CreateProductDto {
   @IsOptional()
   @IsUrl()
   image: string;
+  @IsOptional()
   @IsNumber()
   currentPrice: number;
+  @IsOptional()
   @IsNumber()
   oldPrice: number;
   @IsBoolean()

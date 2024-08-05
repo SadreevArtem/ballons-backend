@@ -20,21 +20,23 @@ export class Product {
   @Column()
   @Length(2, 200)
   description: string;
-  @Column()
+  @Column({
+    default: 'https://i.pravatar.cc/300',
+  })
   image: string;
   @Column()
   currentPrice: number;
-  @Column()
+  @Column({ default: 0 })
   oldPrice: number;
-  @Column()
+  @Column({ default: false })
   isSale: boolean;
-  @Column()
+  @Column({ default: false })
   isSelection: boolean;
-  @Column()
+  @Column({ default: false })
   published: boolean;
-  @Column()
+  @Column('text', { array: true, default: [] })
   tags: string[] | [];
-  @Column()
+  @Column({ default: '' })
   categories: Categories;
   @Column()
   @CreateDateColumn()

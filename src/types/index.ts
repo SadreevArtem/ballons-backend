@@ -5,4 +5,5 @@ export type Categories =
   | 'boy'
   | 'girlfriend'
   | 'man'
-  | 'photozone';
+  | 'photozone'
+  | '';
