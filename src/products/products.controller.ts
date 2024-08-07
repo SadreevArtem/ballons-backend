@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { JwtGuard } from 'src/guard/jwt.guard';
+import { Categories } from 'src/types';
 
 @Controller('products')
 export class ProductsController {
@@ -22,6 +23,10 @@ export class ProductsController {
   @Get(':id')
   async findOne(@Param('id') id: string) {
     return this.productsService.findById(+id);
+  }
+  @Get('category/:category')
+  async getProductsByCategories(@Param('category') category: Categories) {
+    return this.productsService.getProductsByCategories(category);
   }
 
   @UseGuards(JwtGuard)

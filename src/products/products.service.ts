@@ -4,6 +4,7 @@ import { Product } from './entities/product.entity';
 import { Like, Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { Categories } from 'src/types';
 
 @Injectable()
 export class ProductsService {
@@ -14,6 +15,13 @@ export class ProductsService {
 
   findAll(): Promise<Product[]> {
     return this.productRepository.find({ order: { createdAt: 'DESC' } });
+  }
+
+  getProductsByCategories(category: Categories): Promise<Product[]> {
+    return this.productRepository.find({
+      where: { categories: category === 'all' ? '' : category },
+      order: { createdAt: 'DESC' },
+    });
   }
 
   searchProducts(query: string): Promise<Product[]> {
