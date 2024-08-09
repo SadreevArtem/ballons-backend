@@ -15,6 +15,7 @@ import { TelegrafModule } from 'nestjs-telegraf';
 import { TelegrafConfigService } from './config/telegramm.factory';
 import { TelegrammModule } from './telegramm/telegramm.module';
 import { ProductsModule } from './products/products.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { ProductsModule } from './products/products.module';
     UsersModule,
     AuthModule,
     ProductsModule,
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [

@@ -17,7 +17,7 @@ export class Product {
   })
   @Length(2, 30)
   name: string;
-  @Column()
+  @Column({ default: 'Описание продукта' })
   @Length(2, 200)
   description: string;
   @Column({
