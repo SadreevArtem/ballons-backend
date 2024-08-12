@@ -24,6 +24,10 @@ export class ProductsController {
   async findOne(@Param('id') id: string) {
     return this.productsService.findById(+id);
   }
+  @Get('/all/selections')
+  async findSelections() {
+    return this.productsService.findOne({ where: { isSelection: true } });
+  }
   @Get('category/:category')
   async getProductsByCategories(@Param('category') category: Categories) {
     return this.productsService.getProductsByCategories(category);

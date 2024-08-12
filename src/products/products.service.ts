@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
-import { Like, Repository } from 'typeorm';
+import { FindOneOptions, Like, Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Categories } from 'src/types';
@@ -22,6 +22,10 @@ export class ProductsService {
       where: { categories: category === 'all' ? '' : category },
       order: { createdAt: 'DESC' },
     });
+  }
+
+  findOne(options: FindOneOptions<Product>) {
+    return this.productRepository.find(options);
   }
 
   searchProducts(query: string): Promise<Product[]> {
