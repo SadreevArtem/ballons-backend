@@ -7,6 +7,9 @@ export class CreateOrderDto {
   @IsString()
   @IsOptional()
   phone: string;
+  @IsString()
+  @IsOptional()
+  orderString: string;
   @IsOptional()
   @IsNumber()
   adress: string;

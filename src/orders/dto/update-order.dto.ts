@@ -10,6 +10,9 @@ export class UpdateOrderDto extends PartialType(CreateOrderDto) {
   @IsString()
   @IsOptional()
   phone: string;
+  @IsString()
+  @IsOptional()
+  orderString: string;
   @IsOptional()
   @IsNumber()
   adress: string;

@@ -18,6 +18,8 @@ export class Order {
   name: string;
   @Column()
   phone: string;
+  @Column({ default: '' })
+  orderString: string;
   @Column()
   adress: string;
   @Column({ default: 'коментарий' })
