@@ -28,6 +28,10 @@ export class ProductsController {
   async findSelections() {
     return this.productsService.findOne({ where: { isSelection: true } });
   }
+  @Get('/all/sales')
+  async findSales() {
+    return this.productsService.findOne({ where: { isSale: true } });
+  }
   @Get('category/:category')
   async getProductsByCategories(@Param('category') category: Categories) {
     return this.productsService.getProductsByCategories(category);

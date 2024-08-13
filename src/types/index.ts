@@ -3,7 +3,7 @@ export type Categories =
   | 'girl'
   | 'boy'
   | 'girlfriend'
-  | 'man'
+  | 'men'
   | 'photozone'
   | 'all'
   | '';

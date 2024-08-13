@@ -12,11 +12,11 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({
-    unique: true,
+    unique: false,
   })
   @Length(2, 30)
   name: string;
-  @Column()
+  @Column({ unique: false })
   phone: string;
   @Column({ default: '' })
   orderString: string;

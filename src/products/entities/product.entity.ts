@@ -13,7 +13,7 @@ export class Product {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({
-    unique: true,
+    unique: false,
   })
   @Length(2, 30)
   name: string;
@@ -36,7 +36,7 @@ export class Product {
   published: boolean;
   @Column('text', { array: true, default: [] })
   tags: string[] | [];
-  @Column({ default: '' })
+  @Column({ default: 'all' })
   categories: Categories;
   @Column()
   @CreateDateColumn()
